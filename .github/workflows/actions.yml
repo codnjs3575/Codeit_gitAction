@@ -1,27 +1,26 @@
 # .github/workflows/actions.yml
 
 # 이름 짓기
-name: Github Actions 연습하기
+name: Github Actions로 테스트 자동화하기
 # 언제? 이 작업(워크플로우)을 실행할지 정의
 # push: github에 push할 때마다 실행
 on: push
 
 # 무엇을?
 jobs:
-  push-job:
+  test:
     runs-on: ubuntu-latest # 실행할 환경
     steps:
-      - name: 첫 번째 작업
-        run: echo "첫 번째 작업 실행 중"
-      - name: 여러 명령어 문장 작성하기
-        run: |
-          echo "첫 번째 명령어"
-          echo "두 번째 명령어"
-      - name: Github Actions 자체에 저장되어 있는 변수 사용해보기
-        run: |
-          echo $GITHUB_SHA 
-          echo $GITHUB_REPOSITORY
-      - name: Github Actions Secret 변수 사용해보기
-        run: |
-          echo ${{ secrets.MY_NAME }}
-          echo ${{ secrets.MY_HOBBY }}
+      - name: Github Repository 파일 불러오기
+        uses: actions/checkout@v4
+
+      - name: Node.js 설치
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: 의존성(라이브러리) 설치
+        run: npm ci # npm install처럼 설치를 해주지만 packlock.json이 있어야 설치해주는 명령어
+
+      - name: 테스트 실행하기
+        run: npm run test
