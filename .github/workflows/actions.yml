@@ -4,7 +4,9 @@
 name: Github Actions로 테스트 자동화하기
 # 언제? 이 작업(워크플로우)을 실행할지 정의
 # push: github에 push할 때마다 실행
-on: push
+on:
+  push:
+    branches: -feature/*
 
 # 무엇을?
 jobs:
