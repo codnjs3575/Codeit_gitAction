@@ -4,15 +4,9 @@ on: push
 jobs:
   create-output:
     runs-on: ubuntu-latest
+
     outputs:
       abc: ${{ steps.save-output.outputs.message }}
-    steps:
-      - name: output 저장
-        id: save-output
-        run: echo "message=안녕" >> $GITHUB_OUTPUT
-
-      - name: output 사용
-        run: echo "저장된 키는 ${{ steps.save-output.outputs.message }}입니다."
 
   use-output:
     runs-on: ubuntu-latest
