@@ -1,18 +1,20 @@
 // src/app/page.tsx
+
 'use client';
+
+import * as Sentry from '@sentry/nextjs';
 
 export default function Home() {
   return (
-    <div className="flex h-screen items-center justify-center">
-      <div className="w-80">
-        <button
-          onClick={() => {
-            throw new Error('에러 버튼 클릭 sentry 테스트');
-          }}
-        >
-          에러 발생시키
-        </button>
-      </div>
+    <div>
+      <h1>Sentry 알림 테스트</h1>
+      <button
+        onClick={() => {
+          Sentry.captureException(new Error('Route Handler 에러'));
+        }}
+      >
+        에러 발생
+      </button>
     </div>
   );
 }
