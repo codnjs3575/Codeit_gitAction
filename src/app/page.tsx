@@ -1,5 +1,3 @@
-// src/app/page.tsx
-
 'use client';
 
 import * as Sentry from '@sentry/nextjs';
