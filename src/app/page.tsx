@@ -11,7 +11,7 @@ export default function Home() {
           Sentry.captureException(new Error('Route Handler 에러'));
         }}
       >
-        에러 발생
+        에러 발생!
       </button>
     </div>
   );
