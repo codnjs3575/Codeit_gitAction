@@ -1,8 +1,7 @@
 // app/components/PageTransition/index.tsx
-"use client";
+'use client';
 
-import * as m from "motion/react-m";
-import { motion } from "motion/react";
+import * as m from 'motion/react-m';
 
 export default function PageTransition({
   children,
