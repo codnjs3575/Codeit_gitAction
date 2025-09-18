@@ -4,7 +4,7 @@
 import { Button } from 'devcw-storybook-design-system';
 
 export default function Home() {
-  const a = 1;
+  const c = 1;
 
   return (
     <div>
